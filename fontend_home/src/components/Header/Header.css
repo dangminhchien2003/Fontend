@@ -1,0 +1,483 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+:root {
+  --font-family: "Montserrat", sans-serif;
+  --logo-color-initial: #ffffff;
+  --logo-color-scrolled: #000000;
+  --primary-color-hover: #000000; 
+}
+
+/* --- Container Header chính --- */
+.header-container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  font-family: var(--font-family);
+
+  transition: background-color 0.3s ease-out, transform 0.3s ease-out,
+    box-shadow 0.3s ease-out;
+}
+
+/* --- Phong cách cho trạng thái trong suốt (khi nằm trên HeroBanner) --- */
+.header-container.transparent {
+  background-color: transparent;
+  border-bottom: none;
+}
+
+.header-container.transparent .header-content {
+  color: #ffffff;
+}
+
+.header-container.transparent .logo a {
+  color: var(--logo-color-initial);
+}
+
+.header-container.transparent .navigation a {
+  color: #ffffff;
+}
+
+.header-container.transparent .navigation a::after {
+  background-color: #ffffff; 
+}
+
+.header-container.transparent .icon-btn {
+  color: #ffffff;
+}
+
+/* --- Phong cách cho trạng thái đã cuộn (khi cuộn qua HeroBanner) --- */
+.header-container.scrolled {
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #eeeeee;
+}
+
+.header-container.scrolled .header-content {
+  color: #1a1a1a;
+  padding: 0px 40px;
+  transition: padding 0.3s ease-out;
+}
+
+.header-container.scrolled .logo a {
+  color: var(--logo-color-scrolled);
+}
+
+.header-container.scrolled .navigation a {
+  color: #1a1a1a;
+}
+
+.header-container.scrolled .navigation a::after {
+  background-color: #1a1a1a;
+}
+
+.header-container.scrolled .icon-btn {
+  color: #1a1a1a;
+}
+
+/* --- Hoạt ảnh hiển thị/ẩn cho header dính --- */
+.header-container.visible-sticky {
+  transform: translateY(0); 
+}
+
+.header-container.hidden-sticky {
+  transform: translateY(-200%); 
+}
+
+/* --- Chuyển đổi mượt mà cho các phần tử --- */
+.logo a,
+.navigation a,
+.icon-btn {
+  transition: color 0.3s ease;
+}
+
+/* --- Các phong cách cơ bản cho bố cục và chức năng --- */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px; 
+  padding: 0 35px;
+  position: relative;
+}
+
+/* Logo */
+.logo {
+  font-size: 2.8rem;
+  font-weight: bold;
+  font-family: "Kaushan Script", cursive;
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+/* Điều hướng chính */
+.navigation-ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 45px;
+}
+
+.nav-item-with-menu {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+/* Link trong menu điều hướng chính */
+.nav-link-home,
+.nav-link-pages,
+.nav-link-releases,
+.nav-link-artists,
+.nav-link-events,
+.nav-link-videos,
+.nav-link-shop,
+.nav-link-blog,
+.nav-link-elements {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 10px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Hiệu ứng gạch chân cho link điều hướng chính (không phải mega menu) */
+.navigation a::after {
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  left: 12%;
+  width: 75%;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-out, background-color 0.3s ease;
+}
+
+.navigation a:hover::after {
+  transform: scaleX(1); 
+}
+
+.navigation a.active::after {
+  transform: scaleX(1); 
+}
+
+/* Icon Header */
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  height: 100%;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  height: 100%;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+
+/* --- MEGA MENU STYLES --- */
+.nav-item-with-menu {
+  position: relative; 
+}
+
+.mega-menu {
+  position: fixed;
+  top: 100%; 
+  left: 0;
+  width: 100vw; 
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px 80px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 200px; 
+  z-index: 999; 
+  opacity: 0;
+  pointer-events: none; 
+  transition: opacity 0.3s ease; 
+}
+
+/* Khi hover vào mục HOME thì hiện menu */
+.nav-item-with-menu:hover .mega-menu,
+.mega-menu:hover {
+  opacity: 1;
+  pointer-events: auto; 
+}
+
+.mega-menu .column h3 {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #000000;
+}
+
+.mega-menu .column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mega-menu .column ul li {
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.mega-menu .column ul li a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 0.9rem;
+  transition: color 0.2s ease, transform 0.3s ease;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Pseudo-element cho dấu gạch chân của link trong mega menu */
+.mega-menu .column ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  
+  background-color: var(--primary-color-hover);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease, height 0.3s ease;
+  z-index: 0;
+}
+
+/* --- Dấu gạch chân cho các mục menu LẺ (Odd) --- */
+.mega-menu .column ul li:nth-child(odd) a::after {
+  height: 0.1px; 
+}
+
+/* --- Dấu gạch chân cho các mục menu CHẴN (Even) --- */
+.mega-menu .column ul li:nth-child(even) a::after {
+  height: 1.5px;
+}
+
+.mega-menu .column ul li a:hover::after {
+  transform: scaleX(1); 
+}
+
+.header-container.transparent .mega-menu .column ul li a {
+  color: #000000 !important;
+}
+
+.header-container.transparent .mega-menu .column ul li a:hover {
+  color: var(--primary-color-hover) !important;
+}
+
+.header-container.transparent .mega-menu .column ul li a:hover::after {
+  background-color: var(--primary-color-hover) !important;
+}
+
+/* Quy tắc này sẽ ghi đè hiệu ứng gạch chân cho link chứa ảnh */
+.mega-menu .column ul li a img + ::after {
+  content: none; 
+}
+
+.mega-menu .column ul li a[href="#landing-page"]::after {
+  content: none; 
+}
+
+.mega-menu .column ul li:hover a[href="#landing-page"] {
+    transform: translateY(0); 
+}
+
+/* Dấu gạch chân cho tiêu đề có class 'title-h3' */
+.mega-menu .column .title-h3 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px; 
+}
+
+.mega-menu .column .title-h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--primary-color-hover); 
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+/* Hiển thị gạch chân khi hover vào H3 có class 'title-h3' */
+.mega-menu .column .title-h3:hover::after {
+  transform: scaleX(1);
+}
+
+/* --- Mega Menu PAGES Specific Styles --- */
+.mega-menu-pages .column ul li a {
+  font-weight: bold; 
+}
+/* Thêm khoảng cách giữa các item trong menu PAGES */
+.mega-menu-pages .column ul li {
+  margin-bottom: 15px; 
+}
+.mega-menu-pages .column ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Chọn các mục ở vị trí: 1, 2, 4, 5, 7, 8, ... (tức là không phải mục thứ 3, 6, 9, ...) */
+.mega-menu-pages .column ul li:nth-child(3n + 1) a::after,
+.mega-menu-pages .column ul li:nth-child(3n + 2) a::after {
+  height: 0.5px; 
+}
+
+/* Chọn các mục ở vị trí: 3, 6, 9, ... */
+.mega-menu-pages .column ul li:nth-child(3n + 3) a::after {
+  height: 1.5px; 
+}
+
+
+.header-container.transparent .mega-menu-pages .column ul li a::after {
+    background-color: var(--primary-color-hover) !important; 
+}
+
+.mega-menu-pages .column ul li a:hover::after {
+  transform: scaleX(1);
+}
+
+/* menu nút event */
+/* --- Mega Menu EVENTS Specific Styles --- */
+.mega-menu-events .column ul li a {
+  font-weight: bold; /* Giữ in đậm cho các mục này nếu muốn */
+}
+
+/* Khoảng cách giữa các item trong menu EVENTS */
+.mega-menu-events .column ul li {
+  margin-bottom: 15px; 
+}
+.mega-menu-events .column ul li:last-child {
+  margin-bottom: 0;
+}
+
+/*
+   Mẫu gạch chân:
+   0.5px (vị trí 1)
+   0.5px (vị trí 2)
+   1.5px (vị trí 3)
+   0.5px (vị trí 4)
+   0.5px (vị trí 5)
+   0.5px (vị trí 6)
+   1.5px (vị trí 7)
+   ... lặp lại chu kỳ 7 phần tử
+*/
+
+/* Gạch chân 0.5px: Chọn các vị trí 1, 2, 4, 5, 6 trong mỗi chu kỳ 7 phần tử */
+.mega-menu-events .column ul li:nth-child(7n + 1) a::after,
+.mega-menu-events .column ul li:nth-child(7n + 2) a::after,
+.mega-menu-events .column ul li:nth-child(7n + 4) a::after,
+.mega-menu-events .column ul li:nth-child(7n + 5) a::after,
+.mega-menu-events .column ul li:nth-child(7n + 6) a::after {
+  height: 0.5px;
+}
+
+/* Gạch chân 1.5px: Chọn các vị trí 3, 7 trong mỗi chu kỳ 7 phần tử */
+.mega-menu-events .column ul li:nth-child(7n + 3) a::after,
+.mega-menu-events .column ul li:nth-child(7n) a::after { /* 7n sẽ chọn 7, 14, 21... */
+  height: 1.5px;
+}
+
+
+/* Đảm bảo màu sắc gạch chân không bị ảnh hưởng bởi .transparent state */
+.header-container.transparent .mega-menu-events .column ul li a::after {
+    background-color: var(--primary-color-hover) !important; /* Đảm bảo màu đen khi hover */
+}
+
+/* Kích hoạt dấu gạch chân khi HOVER TRỰC TIẾP VÀO LINK TRONG MEGA MENU EVENTS */
+.mega-menu-events .column ul li a:hover::after {
+  transform: scaleX(1);
+}
+
+/* menu shop */
+.mega-menu-shop ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Đảm bảo căn giữa dọc */
+  margin-bottom: 25px; /* Tăng giá trị này lên, ví dụ 25px */
+  position: relative;
+  /* Bỏ `flex-wrap: nowrap;` nếu có thể làm cho item bị tràn */
+}
+
+/* Đảm bảo thẻ a vẫn có padding và hoạt động như mong muốn */
+.mega-menu-shop ul li a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 0.9rem;
+  transition: color 0.2s ease, transform 0.3s ease;
+  display: inline-block; 
+  padding: 5px 0;
+  position: relative;
+  z-index: 1;
+  flex-grow: 1; 
+  font-weight: bold;
+}
+
+.arrow-wrapper {
+   margin-left: 55px; 
+  display: flex; 
+  align-items: center; 
+  padding: 5px 0; 
+  z-index: 2; 
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
+  font-size: 0.8em;
+  color: #000000;
+}
+
+/* Gạch chân cho item thứ 3  */
+.mega-menu-shop ul li.underline-on-hover a {
+  position: relative; /* Quan trọng để gạch chân pseudo-element định vị tương đối */
+  display: inline-block; /* Để gạch chân có thể áp dụng đúng width */
+}
+
+.mega-menu-shop ul li.underline-on-hover a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* Điều chỉnh vị trí của gạch chân so với text */
+  width: 0; /* Bắt đầu với độ rộng 0 */
+  height: 1.5px; /* Độ dày của gạch chân */
+  background-color: currentColor; /* Màu gạch chân giống màu chữ */
+  transition: width 0.3s ease; /* Hiệu ứng gạch chân mở rộng */
+}
+
+.mega-menu-shop ul li.underline-on-hover:hover a::after {
+  width: 100%; /* Mở rộng gạch chân ra toàn bộ chiều rộng khi hover */
+}
+
+/* Đảm bảo các item khác không có gạch chân mặc định */
+.mega-menu-shop ul li:not(.underline-on-hover) a::after {
+  content: none;
+}
+.mega-menu-shop .column ul li:last-child {
+  margin-bottom: 0;
+}
