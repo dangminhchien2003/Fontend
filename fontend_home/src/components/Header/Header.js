@@ -556,17 +556,7 @@ const Header = () => {
               </div>
             </li>
 
-            {/* <li>
-              <a
-                href="#shop"
-                className={`nav-link-shop ${
-                  activeLink === "SHOP" ? "active" : ""
-                }`}
-                onClick={() => setActiveLink("SHOP")}
-              >
-                SHOP
-              </a>
-            </li> */}
+
             <li className="nav-item-with-menu">
               {" "}
               <a
@@ -578,29 +568,51 @@ const Header = () => {
               >
                 SHOP
               </a>
-           
-              <div
-                className="mega-menu mega-menu-shop"
-                style={{
-                  width: "220px",
-                  padding: "30px",
-                  left: "890px",
-                }}
-              >
+              <div className="mega-menu mega-menu-shop">
                 <div className="column">
                   <ul>
-                    <li>
+                    {/* --- MỤC 1: SHOP LAYOUTS --- */}
+                    <li className="has-submenu">
                       <a href="#shop-layouts">SHOP LAYOUTS </a>
                       <span className="arrow-wrapper">
                         <FaChevronRight className="arrow-icon" />{" "}
                       </span>
+
+                      {/* === THÊM SUB-MENU VÀO ĐÂY === */}
+                      <ul className="sub-menu">
+                        <li>
+                          <a href="#sidebar-right">Sidebar Right</a>
+                        </li>
+                        <li>
+                          <a href="#sidebar-left">Sidebar Left</a>
+                        </li>
+                        <li>
+                          <a href="#archives">Archives</a>
+                        </li>
+                      </ul>
                     </li>
-                    <li>
+
+                    {/* --- MỤC 2: SHOP GRID (Làm tương tự nếu muốn) --- */}
+                    <li className="has-submenu">
                       <a href="#shop-grid">SHOP GRID </a>
                       <span className="arrow-wrapper">
                         <FaChevronRight className="arrow-icon" />{" "}
                       </span>
+
+                      {/* === THÊM SUB-MENU VÀO ĐÂY === */}
+                      <ul className="sub-menu">
+                        <li>
+                          <a href="#grid-2-cols">2 Columns</a>
+                        </li>
+                        <li>
+                          <a href="#grid-3-cols">3 Columns</a>
+                        </li>
+                        <li>
+                          <a href="#grid-4-cols">4 Columns</a>
+                        </li>
+                      </ul>
                     </li>
+
                     <li className="underline-on-hover">
                       <a href="#products-layout">PRODUCTS LAYOUT </a>
                       <span className="arrow-wrapper">

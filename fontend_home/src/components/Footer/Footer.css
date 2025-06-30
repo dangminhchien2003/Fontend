@@ -1,0 +1,189 @@
+.footer-container {
+  background-color: #000;
+  color: #fff;
+  padding-top: 130px;
+  padding-bottom: 80px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding: 0 55px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.footer-section h3 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-section p {
+  font-size: 16px;
+  line-height: 1.8;
+  /* Giữ nguyên hoặc điều chỉnh margin-bottom mặc định cho các p khác nếu có */
+  color: #ffffff;
+}
+
+/* Stay Tuned Section */
+.stay-tuned {
+  text-align: left;
+}
+
+.stay-tuned p {
+  margin-bottom: 0px; /* Đảm bảo không có margin dưới */
+  margin-top: 0px;    /* <-- THÊM DÒNG NÀY để loại bỏ margin trên mặc định */
+  padding: 0;         /* <-- THÊM DÒNG NÀY để loại bỏ padding mặc định nếu có (ít phổ biến hơn) */
+}
+
+.social-icons {
+  margin-top: 30px;
+  display: flex;
+  gap: 40px;
+  justify-content: flex-start;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+
+/* Logo and Text Section */
+.logo-and-text {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 2;
+  margin-top: -50px;
+}
+
+.logo-and-text p {
+  margin-top: 50px;
+}
+.footer-logo {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 90px;
+  color: #fff;
+  margin-bottom: 5px;
+  line-height: 1;
+}
+
+/* Quick Links Section */
+.quick-links {
+  text-align: right;
+}
+
+.quick-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.quick-links ul li {
+  margin-bottom: 12px;
+}
+
+.quick-links ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.quick-links ul li a:hover {
+  color: #aaa;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #333;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.footer-bottom p a {
+  color: #aaa;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .footer-section {
+    text-align: center;
+    min-width: unset;
+    width: 100%;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .logo-and-text {
+    margin-top: 0;
+  }
+
+  .quick-links {
+    text-align: center;
+  }
+
+  /* Điều chỉnh font-size cho mobile nếu cần, để không quá to */
+  .footer-section h3 {
+    font-size: 16px;
+  }
+
+  .footer-section p,
+  .quick-links ul li a,
+  .footer-bottom p {
+    font-size: 14px;
+  }
+
+  .social-icons a {
+    font-size: 20px;
+  }
+
+  .footer-logo {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-logo {
+    font-size: 48px;
+  }
+
+  .footer-section h3 {
+    font-size: 14px;
+  }
+
+  .footer-section p,
+  .quick-links ul li a,
+  .footer-bottom p {
+    font-size: 12px;
+  }
+}

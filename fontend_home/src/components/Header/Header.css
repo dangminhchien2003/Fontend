@@ -251,7 +251,6 @@
   z-index: 1;
 }
 
-
 /* Pseudo-element cho dấu gạch chân của link trong mega menu */
 .mega-menu .column ul li a::after {
   content: "";
@@ -364,9 +363,8 @@
 }
 
 /* menu nút event */
-/* --- Mega Menu EVENTS Specific Styles --- */
 .mega-menu-events .column ul li a {
-  font-weight: bold; /* Giữ in đậm cho các mục này nếu muốn */
+  font-weight: bold; 
 }
 
 /* Khoảng cách giữa các item trong menu EVENTS */
@@ -376,18 +374,6 @@
 .mega-menu-events .column ul li:last-child {
   margin-bottom: 0;
 }
-
-/*
-   Mẫu gạch chân:
-   0.5px (vị trí 1)
-   0.5px (vị trí 2)
-   1.5px (vị trí 3)
-   0.5px (vị trí 4)
-   0.5px (vị trí 5)
-   0.5px (vị trí 6)
-   1.5px (vị trí 7)
-   ... lặp lại chu kỳ 7 phần tử
-*/
 
 /* Gạch chân 0.5px: Chọn các vị trí 1, 2, 4, 5, 6 trong mỗi chu kỳ 7 phần tử */
 .mega-menu-events .column ul li:nth-child(7n + 1) a::after,
@@ -400,7 +386,7 @@
 
 /* Gạch chân 1.5px: Chọn các vị trí 3, 7 trong mỗi chu kỳ 7 phần tử */
 .mega-menu-events .column ul li:nth-child(7n + 3) a::after,
-.mega-menu-events .column ul li:nth-child(7n) a::after { /* 7n sẽ chọn 7, 14, 21... */
+.mega-menu-events .column ul li:nth-child(7n) a::after { 
   height: 1.5px;
 }
 
@@ -416,13 +402,27 @@
 }
 
 /* menu shop */
-.mega-menu-shop ul li {
+.mega-menu-shop {
+    position: absolute; /* Thay vì fixed */
+    top: 100%; /* Hiện ngay bên dưới mục SHOP */
+    right: 0;  /* Hoặc left: 50%; transform: translateX(-50%); để căn giữa */
+
+    /* Giữ các thuộc tính khác của bạn */
+    width: 220px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.mega-menu-shop .column ul li {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Đảm bảo căn giữa dọc */
-  margin-bottom: 25px; /* Tăng giá trị này lên, ví dụ 25px */
+  align-items: center; 
+  margin-bottom: 15px;
   position: relative;
-  /* Bỏ `flex-wrap: nowrap;` nếu có thể làm cho item bị tràn */
 }
 
 /* Đảm bảo thẻ a vẫn có padding và hoạt động như mong muốn */
@@ -481,3 +481,64 @@
 .mega-menu-shop .column ul li:last-child {
   margin-bottom: 0;
 }
+
+/* Đảm bảo thẻ <li> cha có position: relative */
+.mega-menu-shop .column ul li.has-submenu {
+  position: relative;
+}
+
+/* --- SUB-MENU (Menu cấp 2) --- */
+.has-submenu .sub-menu {
+   position: absolute;
+  top: 0;
+  left: 100%; /* đặt sát cạnh phải menu cấp 1 */
+  
+  width: 220px;
+  background-color: #ffffff;
+  padding: 15px 25px;
+  list-style: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(10px); /* hiệu ứng trượt nhẹ */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Khi di chuột vào mục cha, hiển thị sub-menu */
+.mega-menu-shop .column ul li.has-submenu:hover > .sub-menu {
+    opacity: 1; /* Hiển thị */
+    pointer-events: auto; 
+    transform: translateX(0); 
+}
+
+/* Các ITEM bên trong sub-menu */
+.sub-menu li {
+    margin-bottom: 8px; 
+}
+.sub-menu li:last-child {
+    margin-bottom: 0;
+}
+
+.sub-menu li a {
+  display: block;
+  padding: 5px 0;
+  color: #000000;
+  font-weight: 400;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  position: relative;
+}
+.sub-menu li a:hover {
+  color: var(--primary-color-hover, #007bff);
+}
+
+.sub-menu li a::after {
+  content: none; /* không có gạch chân */
+}
+
+
+
