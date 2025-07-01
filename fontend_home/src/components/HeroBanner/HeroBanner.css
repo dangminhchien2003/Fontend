@@ -1,23 +1,289 @@
 .hero-banner {
-  background: url('https://images.unsplash.com/photo-1511376777868-611b54f68947') center/cover no-repeat;
-  height: 90vh;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  height: 110vh;
+  overflow: hidden;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+
+.slide-bg {
+  position: absolute;
+  width: 100%;
+  height: 110vh;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+.swiper-slide {
+  height: 110vh !important; /* ép chiều cao slide đúng màn hình */
 }
 .hero-overlay {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
 }
+
 .hero-content {
   position: relative;
   z-index: 2;
+  max-width: 800px;
+  margin-left: 135px;
+  /* background-color: antiquewhite; */
+  padding-top: 110px;
+}
+
+.hero-subtitle {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 3.6rem;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.hero-title {
+  font-size: 3.6rem;
+  font-weight: 900;
+  margin-top: 0;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+.hero-description {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  max-width: 750px;
   color: #fff;
 }
+
 .cta-btn {
-  margin-top: 20px;
+  padding: 18px 24px;
+  background-color: #ff3366;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 40px;
+}
+
+.cta-btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Dots giống Herion */
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.5);
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  margin: 0 6px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.swiper-pagination-bullet-active {
+  background: transparent;
+  border: 2px solid #fff;
+}
+
+.swiper-pagination-bullet-active::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Ảnh nền trượt mượt */
+.animated-slide {
+  animation: slideInRight 1.5s ease forwards;
+}
+
+/* Overlay mượt */
+.animated-overlay {
+  animation: fadeInOverlay 1.5s ease forwards;
+}
+
+/* Nội dung trượt từ phải + mờ dần đến rõ */
+.animated-content {
+  opacity: 0;
+  transform: translateX(80px);
+  animation: fadeSlideIn 1.8s ease forwards;
+  animation-delay: 0.3s;
+}
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Ẩn mặc định */
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-pagination {
+ opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+/* Hiện khi hover vào banner */
+.hero-banner:hover .swiper-button-prev,
+.hero-banner:hover .swiper-button-next,
+.hero-banner:hover .swiper .swiper-pagination {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 24px;
+  font-weight: bold;
+}
+/* Wrapper để tăng vùng chọn */
+.arrow-wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;  /* vùng chọn lớn hơn */
+  height: 80px;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.prev-wrapper {
+  left: 40px;
+}
+
+.next-wrapper {
+  right: 40px;
+}
+
+/* Center the actual arrow inside wrapper */
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 2px;
+  background-color: white;
+  z-index: 10;
+  transition: transform 0.4s ease;
+}
+
+/* Đầu mũi tên */
+.swiper-button-prev::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(-135deg);
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+}
+
+.swiper-button-next::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+}
+
+/* Vòng tròn cho mũi tên trái */
+.prev-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20px; /* nằm ngay đầu mũi tên bên trái */
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+
+  background: conic-gradient(white 0deg, white 0deg, transparent 0deg);
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), black calc(100% - 2px));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), black calc(100% - 2px));
+  transition: background 2s linear;
+  opacity: 0.4;
+}
+
+/* Vòng tròn cho mũi tên phải */
+.next-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -20%; /* nằm ngay đầu mũi tên bên phải */
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+
+  background: conic-gradient(white 0deg, white 0deg, transparent 0deg);
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), black calc(100% - 2px));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), black calc(100% - 2px));
+  transition: background 2s linear;
+  opacity: 0.4;
+}
+.prev-wrapper:hover::after {
+  background: conic-gradient(white 0deg, white 360deg, transparent 360deg);
+}
+.next-wrapper:hover::after {
+  background: conic-gradient(white 0deg, white 360deg, transparent 360deg);
+}
+
+/* Mũi tên trái dịch sang trái */
+.prev-wrapper:hover .swiper-button-prev {
+  transform: translate(-60%, -50%);
+}
+
+/* Mũi tên phải dịch sang phải */
+.next-wrapper:hover .swiper-button-next {
+  transform: translate(-40%, -50%);
 }
