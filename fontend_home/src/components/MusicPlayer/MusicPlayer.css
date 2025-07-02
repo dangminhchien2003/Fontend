@@ -1,0 +1,464 @@
+.music-player-background-wrapper {
+  background-color: #ffffff;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.background-container {
+  background-image: url("https://img.freepik.com/premium-photo/black-background-paper-texture-similar-concrete-wall_84485-2371.jpg?semt=ais_hybrid&w=740"); /* Dùng url() cho ảnh nền */
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 63vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -10vh;
+}
+
+.music-player-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: none;
+  padding: 0;
+}
+
+.main-content {
+  background-color: #1a1a1a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 650px;
+  overflow: hidden;
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.sidebar-right {
+  position: absolute;
+  right: -80px;
+  top: -80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+
+.headphone-image {
+  width: 300px;
+  height: auto;
+}
+
+.sidebar-left {
+  position: absolute;
+  left: 0px;
+  bottom: -80px;
+  z-index: 3;
+}
+
+.microphone-image {
+  width: 200px;
+  height: auto;
+}
+
+/* -------------------- PLAYER CSS -------------------- */
+.player-container {
+  background-size: cover;
+  background-position: center;
+  border-bottom: none;
+  overflow: hidden;
+  height: 130px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.player-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.player-top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  flex-grow: 1;
+  z-index: 2;
+}
+
+.album-art-wrapper {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 1;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.album-art-wrapper:hover {
+  border-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.album-art-container {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+}
+
+.album-art-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://bazaarvietnam.vn/wp-content/uploads/2023/04/harper-bazaar-nu-ca-si-noi-tieng-nhat-the-gioi-ava-max-e1682001486783.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.album-art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(2px);
+}
+
+.album-art-play-icon {
+  position: absolute;
+  font-size: 1.6em;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.album-art-play-icon:hover {
+  color: #fff;
+}
+
+.player-main-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4;
+  flex-grow: 1;
+  color: #fff;
+}
+
+.track-artist {
+  font-size: 0.8em;
+  color: #ccc;
+  margin-bottom: 2px;
+}
+
+.track-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.player-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.control-icon {
+  font-size: 1.5em;
+  color: #eee;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.control-icon:hover {
+  color: #fff;
+}
+
+.player-time {
+  font-size: 0.75em;
+  color: #bbb;
+  margin-top: 5px;
+}
+
+.settings-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5em;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.settings-icon.vertical {
+  transform: rotate(90deg);
+}
+
+.settings-icon:hover {
+  opacity: 1;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #dc5858;
+  width: 10%;
+  border-radius: 2px;
+}
+
+/* -------------------- TRACKLIST CSS -------------------- */
+.track-list-container {
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: #2f2e2e;
+  border-radius: 0 0 8px 8px;
+}
+
+.track-list-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.track-list-container::-webkit-scrollbar-track {
+  background: #333;
+  border-radius: 10px;
+}
+
+.track-list-container::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+
+.track-list-container::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+.track-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #2a2a2a;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.track-item:last-child {
+  border-bottom: none;
+}
+
+.track-item:hover {
+  background-color: #2a2a2a;
+}
+
+.track-item-info {
+  flex-grow: 1;
+}
+
+.track-item-title {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.track-item-artist {
+  font-size: 0.7em;
+  color: #aaa;
+}
+
+.track-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.action-icon {
+  font-size: 1.1em;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.action-icon:hover {
+  color: #fff;
+}
+
+.track-item-duration {
+  font-size: 0.8em;
+  color: #aaa;
+  min-width: 40px;
+  text-align: right;
+}
+.track-item.active {
+  background-color: #212020;
+  transition: background-color 0.3s, border-left 0.3s;
+}
+
+/* ----------------------------------------------------------*/
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+/* -------------------- SERVICES SECTION -------------------- */
+.services-section {
+  padding: 20px 10px;
+  background-color: #ffffff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1400px;
+  color: #333;
+  text-align: left;
+}
+
+.service-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.service-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 3.5em;
+  color: #121212;
+}
+
+.service-item h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: bold;
+}
+
+.service-item p {
+  font-size: 0.9em;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* -------------------- MUSIC PLAYER SECTION -------------------- */
+
+.video-gallery-section {
+  background-color: #1a1a1a;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  width: 100%;
+  gap: 0;
+}
+
+.video-item {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background-color: #000;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.video-thumbnail {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.video-item:hover .video-thumbnail {
+  transform: scale(0.91);
+}
+
+.video-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4em;
+  color: rgba(255, 255, 255, 0.8);
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.video-title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  transition: color 0.3s ease;
+  opacity: 1;
+}
+
+.video-item:hover .video-play-icon {
+  color: #fff;
+}
+
+.video-item:hover .video-title-overlay {
+  color: #ffffff;
+}
