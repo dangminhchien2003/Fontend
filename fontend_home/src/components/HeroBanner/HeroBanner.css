@@ -79,10 +79,10 @@
 /* Dots giống Herion */
 .swiper-pagination-bullet {
   background: rgba(255, 255, 255, 0.5);
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   opacity: 1;
-  margin: 0 6px;
+  margin: 0 10px;
   border-radius: 50%;
   position: relative;
 }
@@ -97,8 +97,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   background: #fff;
   border-radius: 50%;
   transform: translate(-50%, -50%);
@@ -167,6 +167,62 @@
 .hero-banner:hover .swiper .swiper-pagination {
   opacity: 1;
   pointer-events: auto;
+}
+
+.swiper .swiper-pagination {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 5px; /* <-- Tạo khoảng cách giữa các dấu chấm */
+  bottom: 30px !important;
+}
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.5);
+  width: 14px;
+  height: 14px;
+  opacity: 1;
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s ease; /* Thêm hiệu ứng mượt */
+}
+.swiper-pagination-bullet:hover,
+.swiper-pagination-bullet-active {
+  background: transparent;
+  border: 2px solid white;
+  position: relative;
+}
+
+.swiper-pagination-bullet:hover::after,
+.swiper-pagination-bullet-active::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+/* Hover hiệu ứng vòng tròn trắng bao quanh */
+.swiper-pagination-bullet:hover {
+  background: transparent;
+  border: 2px solid white;
+  position: relative;
+}
+
+.swiper-pagination-bullet:hover::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .swiper-button-prev::after,
