@@ -1,5 +1,6 @@
 import Header from '../../components/Header/Header';
 import HeroBanner from '../../components/HeroBanner/HeroBanner';
+import Artists from '../../components/Artists/Artists';
 import Footer from '../../components/Footer/Footer';
 import { TfiShoppingCart } from "react-icons/tfi";
 import { IoIosShareAlt } from "react-icons/io";
@@ -10,10 +11,10 @@ const Home = () => {
     <>
       <Header />
       <HeroBanner />
-      <HeroBanner />
-      <HeroBanner />
-      {/* <Discography />
-      <TourSchedule />
+      {/* <HeroBanner />
+      <HeroBanner /> */}
+     <Artists />
+      {/*  <TourSchedule />
       <VideoGallery />*/}
 
        {/* Code cho các nút nổi được đặt trực tiếp tại đây */}
