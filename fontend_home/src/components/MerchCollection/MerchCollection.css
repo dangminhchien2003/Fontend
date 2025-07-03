@@ -1,0 +1,421 @@
+@import url("https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap");
+.container {
+  font-family: "Arial", sans-serif;
+  background-color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.header {
+  margin-bottom: 60px;
+  margin-top: 100px;
+}
+
+.newArrivals {
+  font-family: "Kaushan Script", cursive;
+  font-size: 2.9rem;
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: normal;
+}
+
+.merchCollectionTitle {
+  font-size: 1.8em;
+  color: #000;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+.productGrid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.productItem {
+  width: 430px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.productImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(0.85);
+}
+
+.playIconOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.playIconOverlay .icon {
+  color: #fff;
+  font-size: 18px;
+  line-height: 1;
+}
+.newBadge {
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  color: #262626;
+  font-size: 15px;
+  font-weight: bold;
+  z-index: 2;
+  text-transform: uppercase;
+}
+.hoverOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4); /* Màu trắng mờ */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.productItem:hover .hoverOverlay {
+  opacity: 1;
+}
+
+.productRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.productDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.productRow .productActions {
+  display: flex;
+  gap: 8px;
+  right: 0;
+}
+
+.productInfo {
+  padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.productCategory {
+  font-size: 0.8em;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.productName {
+  font-size: 18px;
+  color: #000000;
+  margin: 0;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.productPrice {
+  font-size: 16.5px;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 1px;
+  line-height: 0.5;
+}
+
+.iconWrapper:hover {
+  border-color: #000000;
+}
+
+.iconWrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(91, 90, 90, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  cursor: pointer;
+  font-size: 1.2em;
+  position: relative;
+  z-index: 2;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.iconWrapper-cart {
+  position: relative;
+  width: 51px;
+  height: 51px;
+  border-radius: 50%;
+  background-color: #121212;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.2em;
+  z-index: 2;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  font-size: 11px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.iconWrapper:hover .tooltip,
+.iconWrapper-cart:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mer-view-more-button {
+  position: relative;
+  padding: 20px 25px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #000;
+  background-color: transparent;
+  border: 0.8px solid #000;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  margin-top: 65px;
+  margin-bottom: 40px;
+}
+
+.mer-view-more-button:hover {
+  border-color: #aaa;
+}
+
+.mer-view-more-button::before,
+.mer-view-more-button::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1.3px;
+  background: #000;
+  transition: all 0.4s ease;
+}
+
+.mer-view-more-button::before {
+  top: 0;
+  left: 0;
+}
+
+.mer-view-more-button::after {
+  bottom: 0;
+  right: 0;
+}
+
+.mer-view-more-button:hover::before {
+  width: 100%;
+}
+
+.mer-view-more-button:hover::after {
+  width: 100%;
+}
+
+.mer-view-more-button span::before,
+.mer-view-more-button span::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 0;
+  background: #000;
+  transition: all 0.4s ease;
+}
+
+.mer-view-more-button span::before {
+  top: 0;
+  right: 0;
+}
+
+.mer-view-more-button span::after {
+  bottom: 0;
+  left: 0;
+}
+
+.mer-view-more-button:hover span::before,
+.mer-view-more-button:hover span::after {
+  height: 100%;
+}
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .productGrid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .productItem {
+    width: 100%;
+    max-width: 350px;
+  }
+  .productGrid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header {
+    margin-bottom: 30px;
+  }
+  .newArrivals {
+    font-size: 2em;
+  }
+  .merchCollectionTitle {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px 10px;
+  }
+  .newArrivals {
+    font-size: 1.8em;
+  }
+  .merchCollectionTitle {
+    font-size: 1.2em;
+  }
+  .actionButton {
+    padding: 6px 10px;
+    font-size: 0.9em;
+  }
+}
+/* ------------------------- */
+
+.stats-section {
+  width: 100vw;
+  background-image: url("https://yt3.googleusercontent.com/p8RqE38UZY2JIdUxf4LbGqqJ9onDEwxehmVMR0ILrJc5qP7oE9XbbCRQCqMmDBgXW5tcVT2Ghw=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 60px 20px;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  box-sizing: border-box;
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 150px;
+  margin: 10px 0;
+}
+
+.stat-number {
+  font-family: "MedievalSharp", cursive;
+  font-size: 4em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: "Arial", sans-serif;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .stat-number {
+    font-size: 3.5em;
+  }
+
+  .stat-label {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-section {
+    padding: 40px 15px;
+  }
+
+  .stat-number {
+    font-size: 3em;
+  }
+}

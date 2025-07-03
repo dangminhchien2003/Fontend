@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   padding: 80px 20px;
-  background-color: #f0f2f5;
+  background-color: white;
   color: #333;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -146,7 +146,6 @@
 }
 
 .mc-view-more-button:hover {
-  background-color: #f0f0f0;
   border-color: #aaa;
 }
 @keyframes spin {

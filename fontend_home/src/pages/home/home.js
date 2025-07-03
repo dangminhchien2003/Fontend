@@ -3,6 +3,7 @@ import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import Artists from "../../components/Artists/Artists";
 import MusicPlayer from "../../components/MusicPlayer/MusicPlayer";
 import FeaturedReleases from "../../components/FeaturedReleases/FeaturedReleases";
+import MerchCollection from "../../components/MerchCollection/MerchCollection";
 import Footer from "../../components/Footer/Footer";
 import { TfiShoppingCart } from "react-icons/tfi";
 import { IoIosShareAlt } from "react-icons/io";
@@ -16,7 +17,7 @@ const Home = () => {
       <Artists />
       <MusicPlayer />
       <FeaturedReleases />
-      {/* <VideoGallery /> */}
+      <MerchCollection />
 
       {/* Code cho các nút nổi được đặt trực tiếp tại đây */}
       <div className="floating-buttons-container">
