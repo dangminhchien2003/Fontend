@@ -1,0 +1,556 @@
+.latest-news-section {
+  background-color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 50px;
+}
+
+.whats-up-title {
+  font-family: "Kaushan Script", cursive;
+  font-size: 2.9rem;
+  color: #bbb;
+  margin-bottom: 5px;
+  font-weight: normal;
+}
+
+.latest-news-title {
+  font-size: 1.8em;
+  color: #000;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+.posts-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.post-card {
+  background-color: white;
+  width: 330px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 20px;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+}
+
+.post-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.category-overlay {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  height: 100%;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  text-orientation: mixed;
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 0.7rem;
+  padding-top: 50px;
+  padding-left: 3px;
+  padding-right: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.post-content {
+  margin-top: -30px;
+  margin-left: 50px;
+  background: white;
+  backdrop-filter: blur(3px);
+  padding: 20px;
+  z-index: 5;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover .post-content {
+  transform: translateY(-5px);
+}
+
+.post-type {
+  font-size: 1em;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.post-date {
+  font-size: 0.6em;
+  color: #666;
+  font-weight: bold;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+.post-type:hover,
+.post-date:hover {
+  color: rgb(249, 22, 90);
+}
+
+.post-description {
+  font-size: 0.9em;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  max-width: 200px;
+}
+
+.read-more-button {
+  display: inline-block;
+  font-size: 0.7em;
+  font-weight: bold;
+  color: #000;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 2px;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.read-more-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #000;
+  z-index: 1;
+  transition: opacity 0.1s ease;
+  opacity: 1;
+}
+
+.read-more-button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: white;
+  width: 0%;
+  z-index: 2;
+  transition: width 1s ease, opacity 0s ease 1s;
+  opacity: 1;
+}
+
+.read-more-button:hover::before {
+  width: 100%;
+  opacity: 0;
+}
+
+.read-more-button:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 1200px) {
+  .posts-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .post-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .post-card {
+    width: 100%;
+    max-width: 350px;
+  }
+  .header {
+    margin-bottom: 30px;
+  }
+  .whats-up-title {
+    font-size: 2.2em;
+  }
+  .latest-news-title {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .latest-news-section {
+    padding: 40px 10px;
+  }
+  .whats-up-title {
+    font-size: 2em;
+  }
+  .latest-news-title {
+    font-size: 1.2em;
+  }
+  .post-content {
+    padding: 15px;
+  }
+}
+
+.late-view-more-button {
+  position: relative;
+  padding: 20px 25px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #000;
+  background-color: transparent;
+  border: 0.8px solid #000;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  margin-top: 85px;
+  margin-bottom: 60px;
+}
+
+.late-view-more-button:hover {
+  border-color: #aaa;
+}
+
+.late-view-more-button::before,
+.late-view-more-button::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1.3px;
+  background: #000;
+  transition: all 0.4s ease;
+}
+
+.late-view-more-button::before {
+  top: 0;
+  left: 0;
+}
+
+.late-view-more-button::after {
+  bottom: 0;
+  right: 0;
+}
+
+.late-view-more-button:hover::before {
+  width: 100%;
+}
+
+.late-view-more-button:hover::after {
+  width: 100%;
+}
+
+.late-view-more-button span::before,
+.late-view-more-button span::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 0;
+  background: #000;
+  transition: all 0.4s ease;
+}
+
+.late-view-more-button span::before {
+  top: 0;
+  right: 0;
+}
+
+.late-view-more-button span::after {
+  bottom: 0;
+  left: 0;
+}
+
+.late-view-more-button:hover span::before,
+.late-view-more-button:hover span::after {
+  height: 100%;
+}
+
+/* ------------------------ */
+.subscribe-section {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 350px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.subscribe-text {
+  font-family: "Kaushan Script", cursive;
+  font-size: 19em;
+  color: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -110%);
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.subscribe-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  width: 100%;
+  margin-left: 780px;
+}
+
+.email-input {
+  flex-grow: 1;
+  padding: 15px 20px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1em;
+  outline: none;
+  margin-right: 5px;
+  box-sizing: border-box;
+  height: 50px;
+}
+
+.email-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.email-input:focus {
+  border-color: #eee;
+}
+
+.join-button {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 15px 30px;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  height: 50px;
+  box-sizing: border-box;
+}
+
+.join-button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .subscribe-text {
+    font-size: 8em;
+    top: 40%;
+  }
+
+  .subscribe-form {
+    flex-direction: column;
+    gap: 15px;
+    max-width: 90%;
+  }
+
+  .email-input,
+  .join-button {
+    width: 100%;
+  }
+
+  .subscribe-section {
+    padding: 60px 15px;
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .subscribe-text {
+    font-size: 6em;
+    top: 35%;
+  }
+
+  .email-input,
+  .join-button {
+    padding: 12px 15px;
+    font-size: 0.9em;
+    height: 45px;
+  }
+}
+
+/* ------------- */
+.instagram-gallery-section {
+  width: 100%;
+  margin: 0 auto;
+  font-family: "Arial", sans-serif;
+  background-color: #000;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0;
+  width: 100%;
+  position: relative;
+}
+
+.gallery-item {
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  .instagram-handle-overlay {
+    font-size: 1em;
+  }
+
+  .gallery-grid .gallery-item:nth-child(5) .instagram-handle-overlay {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .gallery-grid .gallery-item:nth-child(3) {
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  .instagram-handle-overlay {
+    font-size: 0.9em;
+  }
+
+  .gallery-grid .gallery-item:nth-child(5) .instagram-handle-overlay {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+  .instagram-handle-overlay {
+    font-size: 0.8em;
+  }
+
+  .gallery-grid .gallery-item:nth-child(5) .instagram-handle-overlay {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+.instagram-global-overlay {
+  position: absolute;
+  top: 225px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  color: rgb(0, 0, 0);
+  padding: 20px 20px;
+  font-size: 0.9em;
+  font-weight: bold;
+  z-index: 20;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.instagram-gallery-section {
+  position: relative;
+}
+
+.gallery-item {
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-image {
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.1);
+}
+
+.image-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+.gallery-item:hover .image-hover-overlay {
+  opacity: 1;
+}
+
+.image-hover-overlay i,
+.instagram-icon {
+  font-size: 2em;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .instagram-icon {
+  transform: scale(1.2);
+}
