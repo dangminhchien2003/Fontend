@@ -5,10 +5,9 @@
   --font-family: "Montserrat", sans-serif;
   --logo-color-initial: #ffffff;
   --logo-color-scrolled: #000000;
-  --primary-color-hover: #000000; 
+  --primary-color-hover: #000000;
 }
 
-/* --- Container Header chính --- */
 .header-container {
   width: 100%;
   position: fixed;
@@ -21,7 +20,6 @@
     box-shadow 0.3s ease-out;
 }
 
-/* --- Phong cách cho trạng thái trong suốt (khi nằm trên HeroBanner) --- */
 .header-container.transparent {
   background-color: transparent;
   border-bottom: none;
@@ -40,14 +38,13 @@
 }
 
 .header-container.transparent .navigation a::after {
-  background-color: #ffffff; 
+  background-color: #ffffff;
 }
 
 .header-container.transparent .icon-btn {
   color: #ffffff;
 }
 
-/* --- Phong cách cho trạng thái đã cuộn (khi cuộn qua HeroBanner) --- */
 .header-container.scrolled {
   background-color: #ffffff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -76,33 +73,29 @@
   color: #1a1a1a;
 }
 
-/* --- Hoạt ảnh hiển thị/ẩn cho header dính --- */
 .header-container.visible-sticky {
-  transform: translateY(0); 
+  transform: translateY(0);
 }
 
 .header-container.hidden-sticky {
-  transform: translateY(-200%); 
+  transform: translateY(-200%);
 }
 
-/* --- Chuyển đổi mượt mà cho các phần tử --- */
 .logo a,
 .navigation a,
 .icon-btn {
   transition: color 0.3s ease;
 }
 
-/* --- Các phong cách cơ bản cho bố cục và chức năng --- */
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px; 
+  height: 80px;
   padding: 0 35px;
   position: relative;
 }
 
-/* Logo */
 .logo {
   font-size: 2.8rem;
   font-weight: bold;
@@ -113,7 +106,6 @@
   text-decoration: none;
 }
 
-/* Điều hướng chính */
 .navigation-ul {
   list-style: none;
   display: flex;
@@ -128,7 +120,6 @@
   align-items: center;
 }
 
-/* Link trong menu điều hướng chính */
 .nav-link-home,
 .nav-link-pages,
 .nav-link-releases,
@@ -150,7 +141,6 @@
   transition: color 0.3s ease;
 }
 
-/* Hiệu ứng gạch chân cho link điều hướng chính (không phải mega menu) */
 .navigation a::after {
   content: "";
   position: absolute;
@@ -164,14 +154,13 @@
 }
 
 .navigation a:hover::after {
-  transform: scaleX(1); 
+  transform: scaleX(1);
 }
 
 .navigation a.active::after {
-  transform: scaleX(1); 
+  transform: scaleX(1);
 }
 
-/* Icon Header */
 .header-icons {
   display: flex;
   align-items: center;
@@ -192,34 +181,31 @@
   transition: color 0.3s ease;
 }
 
-
-/* --- MEGA MENU STYLES --- */
 .nav-item-with-menu {
-  position: relative; 
+  position: relative;
 }
 
 .mega-menu {
   position: fixed;
-  top: 100%; 
+  top: 100%;
   left: 0;
-  width: 100vw; 
+  width: 100vw;
   background: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 30px 80px;
   display: flex;
   flex-wrap: nowrap;
-  gap: 200px; 
-  z-index: 999; 
+  gap: 200px;
+  z-index: 999;
   opacity: 0;
-  pointer-events: none; 
-  transition: opacity 0.3s ease; 
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-/* Khi hover vào mục HOME thì hiện menu */
 .nav-item-with-menu:hover .mega-menu,
 .mega-menu:hover {
   opacity: 1;
-  pointer-events: auto; 
+  pointer-events: auto;
 }
 
 .mega-menu .column h3 {
@@ -251,14 +237,13 @@
   z-index: 1;
 }
 
-/* Pseudo-element cho dấu gạch chân của link trong mega menu */
 .mega-menu .column ul li a::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  
+
   background-color: var(--primary-color-hover);
   transform: scaleX(0);
   transform-origin: left;
@@ -266,18 +251,16 @@
   z-index: 0;
 }
 
-/* --- Dấu gạch chân cho các mục menu LẺ (Odd) --- */
 .mega-menu .column ul li:nth-child(odd) a::after {
-  height: 0.1px; 
+  height: 0.1px;
 }
 
-/* --- Dấu gạch chân cho các mục menu CHẴN (Even) --- */
 .mega-menu .column ul li:nth-child(even) a::after {
   height: 1.5px;
 }
 
 .mega-menu .column ul li a:hover::after {
-  transform: scaleX(1); 
+  transform: scaleX(1);
 }
 
 .header-container.transparent .mega-menu .column ul li a {
@@ -292,24 +275,22 @@
   background-color: var(--primary-color-hover) !important;
 }
 
-/* Quy tắc này sẽ ghi đè hiệu ứng gạch chân cho link chứa ảnh */
 .mega-menu .column ul li a img + ::after {
-  content: none; 
+  content: none;
 }
 
 .mega-menu .column ul li a[href="#landing-page"]::after {
-  content: none; 
+  content: none;
 }
 
 .mega-menu .column ul li:hover a[href="#landing-page"] {
-    transform: translateY(0); 
+  transform: translateY(0);
 }
 
-/* Dấu gạch chân cho tiêu đề có class 'title-h3' */
 .mega-menu .column .title-h3 {
   position: relative;
   display: inline-block;
-  padding-bottom: 5px; 
+  padding-bottom: 5px;
 }
 
 .mega-menu .column .title-h3::after {
@@ -319,63 +300,55 @@
   left: 0;
   width: 100%;
   height: 1.5px;
-  background-color: var(--primary-color-hover); 
+  background-color: var(--primary-color-hover);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
 }
 
-/* Hiển thị gạch chân khi hover vào H3 có class 'title-h3' */
 .mega-menu .column .title-h3:hover::after {
   transform: scaleX(1);
 }
 
-/* --- Mega Menu PAGES Specific Styles --- */
 .mega-menu-pages .column ul li a {
-  font-weight: bold; 
+  font-weight: bold;
 }
-/* Thêm khoảng cách giữa các item trong menu PAGES */
+
 .mega-menu-pages .column ul li {
-  margin-bottom: 15px; 
+  margin-bottom: 15px;
 }
 .mega-menu-pages .column ul li:last-child {
   margin-bottom: 0;
 }
 
-/* Chọn các mục ở vị trí: 1, 2, 4, 5, 7, 8, ... (tức là không phải mục thứ 3, 6, 9, ...) */
 .mega-menu-pages .column ul li:nth-child(3n + 1) a::after,
 .mega-menu-pages .column ul li:nth-child(3n + 2) a::after {
-  height: 0.5px; 
+  height: 0.5px;
 }
 
-/* Chọn các mục ở vị trí: 3, 6, 9, ... */
 .mega-menu-pages .column ul li:nth-child(3n + 3) a::after {
-  height: 1.5px; 
+  height: 1.5px;
 }
-
 
 .header-container.transparent .mega-menu-pages .column ul li a::after {
-    background-color: var(--primary-color-hover) !important; 
+  background-color: var(--primary-color-hover) !important;
 }
 
 .mega-menu-pages .column ul li a:hover::after {
   transform: scaleX(1);
 }
 
-/* menu nút event */
 .mega-menu-events .column ul li a {
-  font-weight: bold; 
+  font-weight: bold;
 }
 
-/* Khoảng cách giữa các item trong menu EVENTS */
 .mega-menu-events .column ul li {
-  margin-bottom: 15px; 
+  margin-bottom: 15px;
 }
 .mega-menu-events .column ul li:last-child {
   margin-bottom: 0;
 }
 
-/* Gạch chân 0.5px: Chọn các vị trí 1, 2, 4, 5, 6 trong mỗi chu kỳ 7 phần tử */
 .mega-menu-events .column ul li:nth-child(7n + 1) a::after,
 .mega-menu-events .column ul li:nth-child(7n + 2) a::after,
 .mega-menu-events .column ul li:nth-child(7n + 4) a::after,
@@ -384,72 +357,63 @@
   height: 0.5px;
 }
 
-/* Gạch chân 1.5px: Chọn các vị trí 3, 7 trong mỗi chu kỳ 7 phần tử */
 .mega-menu-events .column ul li:nth-child(7n + 3) a::after,
-.mega-menu-events .column ul li:nth-child(7n) a::after { 
+.mega-menu-events .column ul li:nth-child(7n) a::after {
   height: 1.5px;
 }
 
-
-/* Đảm bảo màu sắc gạch chân không bị ảnh hưởng bởi .transparent state */
 .header-container.transparent .mega-menu-events .column ul li a::after {
-    background-color: var(--primary-color-hover) !important; 
+  background-color: var(--primary-color-hover) !important;
 }
 
-/* Kích hoạt dấu gạch chân khi HOVER TRỰC TIẾP VÀO LINK TRONG MEGA MENU EVENTS */
 .mega-menu-events .column ul li a:hover::after {
   transform: scaleX(1);
 }
 
-/* menu shop */
 .mega-menu-shop {
-    position: absolute; 
-    top: 100%; 
-    right: 0; 
-    width: 160px; 
-    background: rgb(255, 255, 255);
-    padding-left: 30px; 
-    padding-top: 30px; 
-    padding-bottom: 30px; 
-    z-index: 999;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 160px;
+  background: rgb(255, 255, 255);
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 .mega-menu-shop .column ul li {
   display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
   margin-bottom: 10px;
   position: relative;
   width: 100%;
   cursor: pointer;
- /* background-color: aqua; */
 }
 
-/* Chỉ áp dụng cho menu cấp 1 trong .mega-menu-shop */
 .mega-menu-shop .column > ul > li > a {
- text-decoration: none;
+  text-decoration: none;
   color: #000000;
   font-size: 0.8rem;
   transition: color 0.2s ease, transform 0.3s ease;
-  display: inline-block; 
+  display: inline-block;
   padding: 10px 0;
   position: relative;
   z-index: 1;
-  flex-grow: 1; 
+  flex-grow: 1;
   font-weight: bold;
-  /* background-color: bisque; */
 }
 
-
 .arrow-wrapper {
-  display: flex; 
-    justify-content: flex-end; 
-    align-items: center; 
-    padding-right: 30px; 
-    padding-left: 8px;
-    z-index: 2;  
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 30px;
+  padding-left: 8px;
+  z-index: 2;
 }
 
 .arrow-icon {
@@ -459,29 +423,27 @@
   margin-left: 55px;
 }
 
-/* Gạch chân cho item thứ 3  */
 .mega-menu-shop ul .has-submenu.underline-on-hover a {
-  position: relative; 
-  display: inline-block; 
+  position: relative;
+  display: inline-block;
 }
 
 .mega-menu-shop ul li.underline-on-hover a::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
-  bottom: -3px; 
-  width: 0; 
-  height: 1.5px; 
-  background-color: currentColor; 
-  transition: width 0.3s ease; 
+  bottom: -3px;
+  width: 0;
+  height: 1.5px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
 }
 
 .mega-menu-shop ul li.underline-on-hover:hover a::after {
-  width: 100%; 
+  width: 100%;
 }
 
-/* Đảm bảo các item khác không có gạch chân mặc định */
- .mega-menu-shop > .column > ul > li:not(.underline-on-hover) > a::after {
+.mega-menu-shop > .column > ul > li:not(.underline-on-hover) > a::after {
   content: none;
 }
 
@@ -489,16 +451,13 @@
   margin-bottom: 0;
 }
 
-/* Đảm bảo thẻ <li> cha có position: relative */
 .mega-menu-shop .column ul li.has-submenu {
   position: relative;
 }
 
-/* --- SUB-MENU (Menu cấp 2) --- */
 .sub-menu {
-   position: absolute;
+  position: absolute;
   top: 0;
-  /* left: 280px;  */
   left: 100%;
   width: 200px;
   background-color: #ffffff;
@@ -507,23 +466,21 @@
 
   opacity: 0;
   pointer-events: none;
-  transform: translateX(-10px); 
+  transform: translateX(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Khi di chuột vào mục cha, hiển thị sub-menu */
 .mega-menu-shop .column ul li.has-submenu:hover > .sub-menu {
-    opacity: 1; 
-    pointer-events: auto; 
-    transform: translateX(0); 
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
 }
 
-/* Các ITEM bên trong sub-menu */
 .sub-menu li {
-    margin-bottom: 8px; 
+  margin-bottom: 8px;
 }
 .sub-menu li:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .column .sub-menu li a {
@@ -538,7 +495,7 @@
 }
 
 .sub-menu li a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -556,8 +513,6 @@
   height: 0.5px !important;
 }
 
-/* Áp dụng cho submenu SHOP GRID */
-
 .mega-menu-shop .sub-menu-grid li:nth-child(odd) a::after {
   height: 0.5px !important;
 }
@@ -570,20 +525,19 @@
   height: 0.5px !important;
 }
 
-/* nut blog */
 .mega-menu-blog {
-    position: absolute; 
-    top: 100%; 
-    right: 0; 
-    width: 160px; 
-    background: rgb(255, 255, 255);
-    padding-left: 30px; 
-    padding-top: 30px; 
-    padding-bottom: 30px; 
-    z-index: 999;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 160px;
+  background: rgb(255, 255, 255);
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 .mega-menu-blog .column > ul > li:nth-child(1) > a::after,
 .mega-menu-blog .column > ul > li:nth-child(2) > a::after {
@@ -594,8 +548,7 @@
   height: 1.5px;
 }
 
-
-  .mega-menu-blog .column > ul > li {
+.mega-menu-blog .column > ul > li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -604,7 +557,7 @@
   width: 100%;
   cursor: pointer;
 }
-/* Gạch chân hover */
+
 .mega-menu-blog .column > ul > li > a {
   text-decoration: none;
   color: #000000;
@@ -635,21 +588,18 @@
   transform: scaleX(1);
 }
 .mega-menu-blog .column ul li.has-submenu:hover > .sub-menu {
-    opacity: 1; 
-    pointer-events: auto; 
-    transform: translateX(0); 
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
 }
 
-/* icon giỏ hàng */
-/* Bọc icon */
 .cart-icon-wrapper {
   position: relative;
 }
 
-/* Hộp dropdown */
 .cart-dropdown {
   position: absolute;
-  top: 100%; 
+  top: 100%;
   right: -20px;
   width: 250px;
   background-color: white;
@@ -659,26 +609,24 @@
   text-align: center;
   padding: 30px 20px;
   border: 1px solid #eaeaea;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 999;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Hover để hiển thị */
 .cart-icon-wrapper:hover .cart-dropdown {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(-5px);
 }
 
-/* icon menu */
 .hover-icon-wrapper {
   position: relative;
   width: 24px;
   height: 24px;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .menu-icon {
@@ -694,20 +642,59 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Icon dưới cùng (hiển thị mặc định) */
 .base-icon {
   z-index: 1;
 }
 
-/* Icon hover nằm đè, ẩn và trượt từ vị trí trùng */
 .top-icon {
   z-index: 2;
   opacity: 0;
-  transform: translateX(-10%); 
+  transform: translateX(-10%);
   pointer-events: none;
 }
 
 .hover-icon-wrapper:hover .top-icon {
   opacity: 1;
   transform: translateX(0);
+}
+/* ----- RESPONSIVE ----- */
+@media (max-width: 992px) {
+  .navigation {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: block;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 100%;
+    background: white;
+    z-index: 998;
+    padding: 20px 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-menu a {
+    display: block;
+    padding: 14px 0;
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .mobile-menu a:last-child {
+    border-bottom: none;
+  }
+
+  .mega-menu,
+  .mega-menu-shop,
+  .mega-menu-blog {
+    display: none !important;
+  }
 }
